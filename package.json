@@ -1,0 +1,11 @@
+{
+  "name": "dec-to-hex",
+  "version": "1.0.0",
+  "description": "convert decimal (base 10) numbers to hexidecimal ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
