@@ -15,12 +15,12 @@ const decToHex = (dec, prefix) => {
   for (let i = pows; i > 0; --i) {
     const hexie_chunk = Math.pow(16, i-1)
     const hex_loc = Math.floor(dec / hexie_chunk)
-    const next_hexie = hexes[hex_loc % 16];
+    const next_hexie = hexes[hex_loc % 16]
 
-    if (!hexie_chunk > dec) {
+    hexie += next_hexie
+    if (dec > hexie_chunk) {
       dec -= hexie_chunk
     }
-    hexie += next_hexie
   }
   return hexie
 };
