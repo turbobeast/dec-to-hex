@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "5.9"
+  - "6.9"
+
+install:
+  - npm install
+  - npm install -g standard
+
+before_script:
+  - npm run lint
