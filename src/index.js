@@ -1,28 +1,30 @@
 'use strict'
 
-const add_pows = (base, dec, num) =>
-  Math.pow(base, num) <= dec
-  ? add_pows(base, dec, num + 1)
-  : num
+const addPows = (base, dec, num) =>
+  Math.pow(base, num) > dec
+  ? num
+  : addPows(base, dec, num + 1)
 
 const decToHex = (dec, prefix) => {
   if (dec === 0) {
     return `${dec}`
   }
   const hexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+  const pows = addPows(16, dec, 0)
   let hexie = prefix || ''
-  const pows = add_pows(16, dec, 0)
-  for (let i = pows; i > 0; --i) {
-    const hexie_chunk = Math.pow(16, i-1)
-    const hex_loc = Math.floor(dec / hexie_chunk)
-    const next_hexie = hexes[hex_loc % 16]
 
-    hexie += next_hexie
-    if (dec > hexie_chunk) {
-      dec -= hexie_chunk
+  for (let i = pows; i > 0; --i) {
+    let hexieChunk = Math.pow(16, i - 1)
+    let hexLoc = Math.floor(dec / hexieChunk)
+    let nextHexie = hexes[hexLoc % 16]
+
+    hexie += nextHexie
+    if (dec > hexieChunk) {
+      dec -= hexieChunk
     }
   }
+
   return hexie
-};
+}
 
 module.exports = decToHex

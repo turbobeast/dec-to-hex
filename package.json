@@ -4,6 +4,7 @@
   "description": "convert decimal (base 10) numbers to hexidecimal",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "standard",
     "test": "node test/*.js | faucet",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
